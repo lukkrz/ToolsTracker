@@ -1,19 +1,29 @@
 package com.ge.toolstracker;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.ge.toolstracker.model.MasterTool;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MasterTool[] mTools = new MasterTool[] {
+                new MasterTool("This is a very fancy tool",1,"tool1",56,80,9),
+                new MasterTool("Essential tool for gas turbines",2,"tool2",20,6,9),
+                new MasterTool("Needed on site all the time",3,"tool3",5,83,9),
+                new MasterTool("Another cool tool",4,"tool4",4533,8,9),
+                new MasterTool("This one is not needed",5,"tool5",231,23,9),
+
+        };
     }
 
 
