@@ -2,4 +2,12 @@
     <string name="app_name">ToolsTracker</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="request_title">Create new request</string>
+    <string name="mRClient_s">Client name</string>
+    <string name="mRDate_s">Needed on Date</string>
+    <string name="mRFE_s">FE</string>
+    <string name="mRFFEM_s">FFEM</string>
+    <string name="mRLocation_s">Location</string>
+    <string name="mRNumber_s">Number</string>
+    <string name="mRSeverity_s">Severity</string>
 </resources>
