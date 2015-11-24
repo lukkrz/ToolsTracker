@@ -1,7 +1,7 @@
 package com.ge.toolstracker.model;
 
 /**
- * Created by £ukasz on 2015-11-16.
+ * Created by lukasz on 2015-11-16.
  */
 public class MasterTool {
 
