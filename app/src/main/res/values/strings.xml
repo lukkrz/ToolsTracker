@@ -14,4 +14,5 @@
     <string name="mRNumber_s">Quantity</string>
     <string name="mRNumber_title">Enter quantity</string>
     <string name="mRSeverity_s">Severity</string>
+    <string name="title_activity_display_master_tools">DisplayMasterToolsActivity</string>
 </resources>

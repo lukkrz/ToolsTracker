@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RequestActivity"></activity>
+        <activity android:name=".RequestActivity" />
+        <activity
+            android:name=".DisplayMasterToolsActivity"
+            android:label="@string/title_activity_display_master_tools"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
