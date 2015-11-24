@@ -4,10 +4,14 @@
     <string name="action_settings">Settings</string>
     <string name="request_title">Create new request</string>
     <string name="mRClient_s">Client name</string>
+    <string name="mRClient_hint">Important company</string>
     <string name="mRDate_s">Needed on Date</string>
-    <string name="mRFE_s">FE</string>
+    <string name="mRFE_s">SSO</string>
+    <string name="mRFE_hint">Your SSO number</string>
     <string name="mRFFEM_s">FFEM</string>
     <string name="mRLocation_s">Location</string>
-    <string name="mRNumber_s">Number</string>
+    <string name="mRLocation_title">Enter location</string>
+    <string name="mRNumber_s">Quantity</string>
+    <string name="mRNumber_title">Enter quantity</string>
     <string name="mRSeverity_s">Severity</string>
 </resources>
