@@ -12,10 +12,13 @@
     tools:context="com.ge.toolstracker.DisplayMasterToolsActivity"
     tools:showIn="@layout/activity_display_master_tools">
 
+
     <ListView
-        android:layout_width="wrap_content"
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
 </RelativeLayout>

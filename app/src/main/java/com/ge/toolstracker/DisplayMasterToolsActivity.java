@@ -1,5 +1,10 @@
 package com.ge.toolstracker;
 
+import static com.ge.toolstracker.model.Constants.FIRST_COLUMN;
+import static com.ge.toolstracker.model.Constants.FOURTH_COLUMN;
+import static com.ge.toolstracker.model.Constants.SECOND_COLUMN;
+import static com.ge.toolstracker.model.Constants.THIRD_COLUMN;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,8 +15,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ge.toolstracker.model.MasterTool;
+import com.ge.toolstracker.model.RequestList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +30,8 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
 
     ArrayList<MasterTool> mTools = new ArrayList<MasterTool>();
 
+    private ArrayList<HashMap<String, String>> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,37 +40,40 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        lv = (ListView) findViewById(R.id.listView);
-        final ListView listview = (ListView) findViewById(R.id.listView);
+
+        ListView listView=(ListView)findViewById(R.id.listView1);
+
+        list=new ArrayList<HashMap<String,String>>();
+
+        ArrayList<MasterTool> rList = new RequestList().getInstance();
+
+        HashMap<String,String> temp=new HashMap<String, String>();
+        temp.put(FIRST_COLUMN, "Ankit Karia");
+        temp.put(SECOND_COLUMN, "Male");
+        temp.put(THIRD_COLUMN, "22");
+        temp.put(FOURTH_COLUMN, "Unmarried");
+        list.add(temp);
+
+
+        ListViewAdapter adapter=new ListViewAdapter(this, rList);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                int pos = position + 1;
+                Toast.makeText(getApplicationContext(), Integer.toString(pos) + " Clicked", Toast.LENGTH_SHORT).show();
+            }
+
+        });
 
         mTools.add(new MasterTool("This is a very fancy tool", 1, "tool1", 56, 80, 9));
         mTools.add(new MasterTool("Essential tool for gas turbines",2,"tool2",20,6,9));
         mTools.add(new MasterTool("Needed on site all the time",3,"tool3",5,83,9));
-        mTools.add(new MasterTool("Another cool tool",4,"tool4",4533,8,9));
-        mTools.add(new MasterTool("This one is not needed",5,"tool5",231,23,9));
+        mTools.add(new MasterTool("Another cool tool", 4, "tool4", 4533, 8, 9));
+        mTools.add(new MasterTool("This one is not needed", 5, "tool5", 231, 23, 9));
 
-        final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, mTools);
-        listview.setAdapter(adapter);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
-                final String item = (String) parent.getItemAtPosition(position);
-                view.animate().setDuration(2000).alpha(0)
-                        .withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                mTools.remove(item);
-                                adapter.notifyDataSetChanged();
-                                view.setAlpha(1);
-                            }
-                        });
-            }
-
-        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,29 +85,5 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
         });
     }
 
-    private class StableArrayAdapter extends ArrayAdapter<MasterTool> {
-
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-        public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<MasterTool> objects) {
-            super(context, textViewResourceId, objects);
-            for (int i = 0; i < objects.size(); ++i) {
-                mIdMap.put(objects.get(i).getmMTName(), i);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            String item = getItem(position).getmMTName();
-            return mIdMap.get(item);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
-    }
 
 }
