@@ -77,7 +77,7 @@ public class ListViewAdapter extends BaseAdapter{
         txtFirst.setText(String.valueOf(map.getmMTID()));
         txtSecond.setText(map.getmMTName());
         txtThird.setText(map.getmMTDescription());
-        txtFourth.setText(String.valueOf(map.getmMTPrice()));
+        txtFourth.setText("$" + String.valueOf(map.getmMTPrice()));
 
         return convertView;
     }

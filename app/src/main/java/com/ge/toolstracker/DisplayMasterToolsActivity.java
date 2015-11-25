@@ -5,7 +5,6 @@ import static com.ge.toolstracker.model.Constants.FOURTH_COLUMN;
 import static com.ge.toolstracker.model.Constants.SECOND_COLUMN;
 import static com.ge.toolstracker.model.Constants.THIRD_COLUMN;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,16 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ge.toolstracker.model.MasterTool;
-import com.ge.toolstracker.model.RequestList;
+import com.ge.toolstracker.model.ToolsList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class DisplayMasterToolsActivity extends AppCompatActivity {
 
@@ -45,7 +42,7 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
 
         list=new ArrayList<HashMap<String,String>>();
 
-        ArrayList<MasterTool> rList = new RequestList().getInstance();
+        ArrayList<MasterTool> rList = new ToolsList().getInstance();
 
         HashMap<String,String> temp=new HashMap<String, String>();
         temp.put(FIRST_COLUMN, "Ankit Karia");
