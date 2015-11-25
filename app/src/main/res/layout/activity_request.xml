@@ -44,7 +44,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText2"
+                android:id="@+id/clientName"
                 android:hint="@string/mRClient_hint"
                 android:layout_below="@+id/textView6"
                 android:layout_alignParentLeft="true" />
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
-                android:id="@+id/editText4"
+                android:id="@+id/date"
                 android:layout_below="@+id/textView7"
                 android:layout_alignParentLeft="true" />
 
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText5"
+                android:id="@+id/sso"
                 android:hint="@string/mRFE_hint" />
 
             <TextView
@@ -94,7 +94,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText6"
+                android:id="@+id/location"
                 android:hint="@string/mRLocation_title" />
 
             <TextView
@@ -107,7 +107,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText7" />
+                android:id="@+id/FFEM" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -128,7 +128,8 @@
                 android:layout_height="wrap_content"
                 android:text="Create Request"
                 android:id="@+id/button2"
-                android:background="#30b227" />
+                android:background="#30b227"
+                android:onClick="saveRequest"/>
 
         </LinearLayout>
     </ScrollView>

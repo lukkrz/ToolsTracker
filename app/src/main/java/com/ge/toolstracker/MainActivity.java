@@ -68,4 +68,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMasterToolsActivity.class);
         startActivity(intent);
     }
+
+    public void displayRequestsList(View view) {
+        // Do something in response to button
+        Intent intent = new Intent(this, DisplayRequestsActivity.class);
+        startActivity(intent);
+    }
 }

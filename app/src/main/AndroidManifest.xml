@@ -20,6 +20,10 @@
         <activity
             android:name=".DisplayMasterToolsActivity"
             android:label="@string/title_activity_display_master_tools"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayRequestsActivity"
+            android:label="@string/title_activity_display_requests"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -5,7 +5,10 @@ package com.ge.toolstracker.model;
  */
 public class Request {
 
+
+
     public enum Severity { LOW, MEDIUM, HIGH }
+    public enum Status { REGISTERED, SHIPPED, ARRIVED, UNKNOWN }
 
     private int mRNumber;
     private long mRDate;
@@ -14,8 +17,11 @@ public class Request {
     private int mRFFEM;
     private int mRFE;
     private Severity mRSeverity;
+    private Status mRStatus;
 
-    public Request(String mRClient, long mRDate, int mRFE, int mRFFEM, String mRLocation, int mRNumber, Severity mRSeverity) {
+
+
+    public Request(String mRClient, long mRDate, int mRFE, int mRFFEM, String mRLocation, int mRNumber, Severity mRSeverity, Status mRStatus) {
         this.mRClient = mRClient;
         this.mRDate = mRDate;
         this.mRFE = mRFE;
@@ -23,6 +29,7 @@ public class Request {
         this.mRLocation = mRLocation;
         this.mRNumber = mRNumber;
         this.mRSeverity = mRSeverity;
+        this.mRStatus = mRStatus;
     }
 
     public String getmRClient() {
@@ -80,4 +87,13 @@ public class Request {
     public void setmRSeverity(Severity mRSeverity) {
         this.mRSeverity = mRSeverity;
     }
+
+    public void setmRStatus(Status mRStatus) {
+        this.mRStatus = mRStatus;
+    }
+
+    public Status getmRStatus() {
+        return mRStatus;
+    }
+
 }

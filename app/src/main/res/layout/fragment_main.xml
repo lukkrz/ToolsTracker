@@ -50,6 +50,6 @@
         android:layout_marginTop="65dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="displayMasterToolsList" />
+        android:onClick="displayRequestsList" />
 
 </RelativeLayout>

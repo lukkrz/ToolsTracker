@@ -15,4 +15,5 @@
     <string name="mRNumber_title">Enter quantity</string>
     <string name="mRSeverity_s">Severity</string>
     <string name="title_activity_display_master_tools">DisplayMasterToolsActivity</string>
+    <string name="title_activity_display_requests">DisplayRequestsActivity</string>
 </resources>

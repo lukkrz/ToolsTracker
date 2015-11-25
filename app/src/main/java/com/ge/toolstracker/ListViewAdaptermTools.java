@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import com.ge.toolstracker.model.MasterTool;
 
-public class ListViewAdapter extends BaseAdapter{
+public class ListViewAdaptermTools extends BaseAdapter{
 
     public ArrayList<MasterTool> list;
     Activity activity;
@@ -28,7 +28,7 @@ public class ListViewAdapter extends BaseAdapter{
     TextView txtSecond;
     TextView txtThird;
     TextView txtFourth;
-    public ListViewAdapter(Activity activity,ArrayList<MasterTool> list){
+    public ListViewAdaptermTools(Activity activity, ArrayList<MasterTool> list){
         super();
         this.activity=activity;
         this.list=list;

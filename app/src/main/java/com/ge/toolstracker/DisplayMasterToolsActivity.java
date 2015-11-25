@@ -25,10 +25,6 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
 
 //    private ListView lv;
 
-    ArrayList<MasterTool> mTools = new ArrayList<MasterTool>();
-
-    private ArrayList<HashMap<String, String>> list;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +36,10 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
 
         ListView listView=(ListView)findViewById(R.id.listView1);
 
-        list=new ArrayList<HashMap<String,String>>();
-
         ArrayList<MasterTool> rList = new ToolsList().getInstance();
 
-        HashMap<String,String> temp=new HashMap<String, String>();
-        temp.put(FIRST_COLUMN, "Ankit Karia");
-        temp.put(SECOND_COLUMN, "Male");
-        temp.put(THIRD_COLUMN, "22");
-        temp.put(FOURTH_COLUMN, "Unmarried");
-        list.add(temp);
 
-
-        ListViewAdapter adapter=new ListViewAdapter(this, rList);
+        ListViewAdaptermTools adapter=new ListViewAdaptermTools(this, rList);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,12 +50,6 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
             }
 
         });
-
-        mTools.add(new MasterTool("This is a very fancy tool", 1, "tool1", 56, 80, 9));
-        mTools.add(new MasterTool("Essential tool for gas turbines",2,"tool2",20,6,9));
-        mTools.add(new MasterTool("Needed on site all the time",3,"tool3",5,83,9));
-        mTools.add(new MasterTool("Another cool tool", 4, "tool4", 4533, 8, 9));
-        mTools.add(new MasterTool("This one is not needed", 5, "tool5", 231, 23, 9));
 
 
 
