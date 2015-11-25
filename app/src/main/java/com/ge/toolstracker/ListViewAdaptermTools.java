@@ -3,10 +3,7 @@ package com.ge.toolstracker;
 /**
  * Created by ross on 25/11/15.
  */
-import static com.ge.toolstracker.model.Constants.FIRST_COLUMN;
-import static com.ge.toolstracker.model.Constants.FOURTH_COLUMN;
-import static com.ge.toolstracker.model.Constants.SECOND_COLUMN;
-import static com.ge.toolstracker.model.Constants.THIRD_COLUMN;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;

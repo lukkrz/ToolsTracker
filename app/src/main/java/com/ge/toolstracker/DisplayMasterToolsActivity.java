@@ -1,9 +1,5 @@
 package com.ge.toolstracker;
 
-import static com.ge.toolstracker.model.Constants.FIRST_COLUMN;
-import static com.ge.toolstracker.model.Constants.FOURTH_COLUMN;
-import static com.ge.toolstracker.model.Constants.SECOND_COLUMN;
-import static com.ge.toolstracker.model.Constants.THIRD_COLUMN;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
