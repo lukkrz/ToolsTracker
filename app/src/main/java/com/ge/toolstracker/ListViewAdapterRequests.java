@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 public class ListViewAdapterRequests extends BaseAdapter{
 
     public ArrayList<Request> list;
+    private ArrayList<Request> finalList;
     Activity activity;
     TextView txtFirst;
     TextView txtSecond;
@@ -29,31 +31,45 @@ public class ListViewAdapterRequests extends BaseAdapter{
     TextView txtFifth;
     TableRow row;
 
+    private Filter mFilter;
+
+
     public ListViewAdapterRequests(Activity activity, ArrayList<Request> list){
         super();
         this.activity=activity;
         this.list=list;
+        this.finalList=list;
     }
 
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return list.size();
+        return finalList.size();
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return list.get(position);
+        return finalList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return 0;
+        return position;
     }
 
+    public Filter getFilter() {
+        if (mFilter == null) {
+            mFilter = new CustomFilter();
+        }
+        return mFilter;
+    }
 
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -76,7 +92,7 @@ public class ListViewAdapterRequests extends BaseAdapter{
 
         }
 
-        Request map=list.get(position);
+        Request map=finalList.get(position);
         txtFirst.setText(String.valueOf(map.getmRNumber()));
         txtSecond.setText(String.valueOf(map.getmRDate()));
         txtThird.setText(map.getmRClient());
@@ -90,6 +106,47 @@ public class ListViewAdapterRequests extends BaseAdapter{
         }
 
         return convertView;
+    }
+
+    private class CustomFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+
+            if (constraint == null || constraint.length() == 0) {
+                ArrayList<Request> mlist = new ArrayList<Request>(list);
+                results.values = mlist;
+                results.count = mlist.size();
+            } else {
+                ArrayList<Request> newValues = new ArrayList<Request>();
+                for (int i = 0; i < list.size(); i++) {
+                    Request item = list.get(i);
+
+                    if (item.getmRClient()
+                            .toLowerCase()
+                            .contains(constraint.toString().toLowerCase())) {
+                        newValues.add(item);
+                    }
+                }
+                results.values = newValues;
+                results.count = newValues.size();
+            }
+
+            return results;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint,
+                                      FilterResults results) {
+            finalList = (ArrayList<Request>) results.values;
+//            finalList = (ArrayList<Request>) results.values;
+//            Log.d("CustomArrayAdapter", String.valueOf(results.values));
+//            Log.d("CustomArrayAdapter", String.valueOf(results.count));
+            notifyDataSetChanged();
+        }
+
     }
 
 }
