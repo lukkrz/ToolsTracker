@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ge.toolstracker.model.MasterTool;
 import com.ge.toolstracker.model.Request;
@@ -63,6 +65,18 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                int pos = position + 1;
+//                Toast.makeText(getApplicationContext(), Integer.toString(pos) + " Clicked", Toast.LENGTH_SHORT).show();
+//                ListItem item = <>listView.getItemAtPosition(position);
+                showRequestDetails(view,position);
+
+            }
+
+        });
+
     }
 
     public void openRequestForm(View view) {
@@ -71,6 +85,12 @@ public class DisplayRequestsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showRequestDetails(View view, int rId) {
+        // Do something in response to button
+        Intent intent = new Intent(this, DisplayRequestDetailsActivity.class);
+        intent.putExtra("rId", rId);
+        startActivity(intent);
+    }
 
 
 }

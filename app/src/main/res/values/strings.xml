@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ToolsTracker</string>
     <string name="hello_world">Hello world!</string>
+    <string name="cAction">Choose action</string>
     <string name="action_settings">Settings</string>
     <string name="request_title">Create new request</string>
     <string name="mRClient_s">Client name</string>

@@ -7,81 +7,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ge.toolstracker.RequestActivity">
+    tools:context="com.ge.toolstracker.DisplayRequestDetailsActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView2" >
+        android:id="@+id/scrollView" >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/request_title"
-                android:id="@+id/textView5"
-                android:textColor="#17c250"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+            android:layout_height="match_parent" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/mRClient_s"
-                android:id="@+id/textView6"
+                android:id="@+id/dClient"
                 android:password="false"
                 android:paddingTop="15dp"
-                android:layout_below="@+id/textView5"
-                android:layout_alignParentLeft="true" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/clientName"
-                android:hint="@string/mRClient_hint"
-                android:layout_below="@+id/textView6"
-                android:layout_alignParentLeft="true" />
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentLeft="true"
+                style="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/mRDate_s"
-                android:id="@+id/textView7"
+                android:id="@+id/textView4"
                 android:password="false"
                 android:paddingTop="15dp"
                 android:layout_below="@+id/editText2"
                 android:layout_alignParentLeft="true" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
-                android:id="@+id/date"
-                android:layout_below="@+id/textView7"
+                android:id="@+id/dDate"
+                android:layout_below="@+id/textView4"
                 android:layout_alignParentLeft="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/mRFE_s"
-                android:id="@+id/textView8" />
+                android:text="Requested by"
+                android:id="@+id/textView12" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/sso"
+                android:id="@+id/dSSO"
                 android:hint="@string/mRFE_hint" />
 
             <TextView
@@ -89,12 +71,12 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/mRLocation_s"
-                android:id="@+id/textView9" />
+                android:id="@+id/textView13" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/location"
+                android:id="@+id/dLocation"
                 android:hint="@string/mRLocation_title" />
 
             <TextView
@@ -102,40 +84,49 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/mRFFEM_s"
-                android:id="@+id/textView10" />
+                android:id="@+id/textView14" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/FFEM" />
+                android:id="@+id/dFFEM" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/mRSeverity_s"
-                android:id="@+id/textView11" />
+                android:id="@+id/textView15" />
 
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
+                android:id="@+id/dSeverity"
                 android:numStars="3"
-                android:stepSize="1"
-                android:rating="1"
-                android:focusableInTouchMode="false"
-                android:contextClickable="false"
-                android:clickable="true" />
+                android:stepSize="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Status"
+                android:id="@+id/dStatusDesc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="SHIPPED"
+                android:id="@+id/dStatus" />
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Create Request"
-                android:id="@+id/button2"
+                android:text="Confirm tools arrival"
+                android:id="@+id/confirm"
                 android:background="#30b227"
-                android:onClick="saveRequest"/>
-
+                android:visibility="gone"
+                android:onClick="confirmRequest" />
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>
