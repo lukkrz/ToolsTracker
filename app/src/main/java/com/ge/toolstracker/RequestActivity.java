@@ -35,10 +35,10 @@ public class RequestActivity extends AppCompatActivity {
     ArrayList<Request> rList = new RequestsList().getInstance();
 
     public void saveRequest(View view) {
-        // Do something in response to button
-//        String name=(TextView) .findViewById(R.id.id);
-
         int rNumber = rList.size() + 1;
+
+        try {
+
 
         EditText editText1 = (EditText)findViewById(R.id.clientName);
         String rClient = editText1.getText().toString();
@@ -67,13 +67,21 @@ public class RequestActivity extends AppCompatActivity {
             rSeverity = Request.Severity.HIGH;
         }
 
-        rList.add(new Request(rClient,rDate,rFE,rFFEM,rLocation, rNumber, rSeverity, Request.Status.REGISTERED));
+            rList.add(new Request(rClient, rDate, rFE, rFFEM, rLocation, rNumber, rSeverity, Request.Status.REGISTERED));
 
-        Toast.makeText(getApplicationContext(),
-                "Your request has been saved with ID: " + rNumber, Toast.LENGTH_LONG)
-                .show();
+            Toast.makeText(getApplicationContext(),
+                    "Your request has been saved with ID: " + rNumber, Toast.LENGTH_LONG)
+                    .show();
 
-        displayRequestsList(view);
+           // displayRequestsList(view);
+            finish();
+
+        } catch (NumberFormatException exp) {
+            Toast.makeText(getApplicationContext(),
+                    "Wrong data in the form." , Toast.LENGTH_LONG)
+                    .show();
+        }
+
     }
 
 }

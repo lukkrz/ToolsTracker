@@ -5,13 +5,13 @@ package com.ge.toolstracker;
  */
 
 import android.app.Activity;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -19,7 +19,7 @@ import com.ge.toolstracker.model.Request;
 
 import java.util.ArrayList;
 
-public class ListViewAdapterRequests extends BaseAdapter{
+public class ListViewAdapterRequests extends BaseAdapter implements Filterable {
 
     public ArrayList<Request> list;
     private ArrayList<Request> finalList;
@@ -79,24 +79,20 @@ public class ListViewAdapterRequests extends BaseAdapter{
 
         LayoutInflater inflater=activity.getLayoutInflater();
 
-        if(convertView == null){
 
             convertView=inflater.inflate(R.layout.requests_list, null);
 
             txtFirst=(TextView) convertView.findViewById(R.id.requestId);
             txtSecond=(TextView) convertView.findViewById(R.id.requestDate);
             txtThird=(TextView) convertView.findViewById(R.id.requestCustomer);
-//            txtFourth=(TextView) convertView.findViewById(R.id.requestFE);
             txtFifth=(TextView) convertView.findViewById(R.id.requestStatus);
             row = (TableRow) convertView.findViewById(R.id.tablerow);
 
-        }
 
         Request map=finalList.get(position);
         txtFirst.setText(String.valueOf(map.getmRNumber()));
         txtSecond.setText(String.valueOf(map.getmRDate()));
         txtThird.setText(map.getmRClient());
-//        txtFourth.setText(String.valueOf(map.getmRFE()));
         txtFifth.setText(String.valueOf(map.getmRStatus()));
         if (map.getmRSeverity() == Request.Severity.MEDIUM){
             row.setBackgroundColor(Color.YELLOW);
@@ -141,9 +137,6 @@ public class ListViewAdapterRequests extends BaseAdapter{
         protected void publishResults(CharSequence constraint,
                                       FilterResults results) {
             finalList = (ArrayList<Request>) results.values;
-//            finalList = (ArrayList<Request>) results.values;
-//            Log.d("CustomArrayAdapter", String.valueOf(results.values));
-//            Log.d("CustomArrayAdapter", String.valueOf(results.count));
             notifyDataSetChanged();
         }
 

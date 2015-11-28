@@ -1,7 +1,6 @@
 package com.ge.toolstracker;
 
 
-import android.app.LauncherActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,7 +15,6 @@ import com.ge.toolstracker.model.MasterTool;
 import com.ge.toolstracker.model.ToolsList;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DisplayMasterToolsActivity extends AppCompatActivity {
 
@@ -44,8 +42,6 @@ public class DisplayMasterToolsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 int pos = position + 1;
                 Toast.makeText(getApplicationContext(), Integer.toString(pos) + " Clicked", Toast.LENGTH_SHORT).show();
-//                ListItem item = listView.getItemAtPosition(position).;
-
             }
 
         });
